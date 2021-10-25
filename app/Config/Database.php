@@ -9,8 +9,7 @@ use CodeIgniter\Database\Config;
  */
 class Database extends Config
 {
-
-    
+        
     /**
      * The directory that holds the Migrations
      * and Seeds directories.
@@ -34,9 +33,9 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
+        'hostname' => 'us-cdbr-east-04.cleardb.com',
+        'username' => 'bb0f4efdb59a56',
+        'password' => '05082c1e',
         'database' => '',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
