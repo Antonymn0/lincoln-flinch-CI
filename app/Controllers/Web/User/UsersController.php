@@ -13,11 +13,22 @@ class UsersController extends BaseController
      *
      * @return mixed
      */
-    public function index()
+    public function index($search_term=null) 
     {
-        $userModel = new UserModel();
-        $users['users'] = $userModel->findAll();
-        return view('users/all_users', $users);
+        $data =array();
+        $userModel = new UserModel();  
+            $db      = \Config\Database::connect();
+            $builder = $db->table('users');
+        if($search_term){
+            if($search_term == 'complete' || $search_term == 'pending'){
+                $data['users'] = $userModel->where('status', $search_term )->findAll();
+                $data['pageTitle'] = ucwords($search_term)  . ' users';
+            }else{
+                $data['users'] = $userModel->findAll();
+                $data['pageTitle'] = 'All users';
+            }    
+        }  
+        return view('users/all_users', $data);
     }
 
     /**
@@ -47,7 +58,7 @@ class UsersController extends BaseController
      */
     public function new()
     {
-       return view('auth/register_form');
+       return view('users/new_user');
     }
 
     /**

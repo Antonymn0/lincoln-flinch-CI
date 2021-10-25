@@ -219,7 +219,7 @@
 
 	<div class="heroe">
 
-		<h1>Lincoln flinch</h1>
+		<h1>Lincoln flinch index</h1>
 
 		<h2>Your lawrfuly law services provider :)</h2>
 

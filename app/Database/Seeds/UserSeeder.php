@@ -12,8 +12,9 @@ class UserSeeder extends Seeder
         $model->insert([
             'name'=> static::faker()->name,
             'email'=> static::faker()->email,
+            'status'=> static::faker()->randomElement(['complete', 'pending']),
             'password'=> static::faker()->password,
-            'deleted_at'=> date(date("Y/m/d")),
+            'deleted_at'=> null,
         ]);
     }
 }

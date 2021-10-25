@@ -19,7 +19,6 @@ class LoginController extends BaseController
         if ($this->request->getMethod() == "post") {
             $validation =  \Config\Services::validation();
             $session = session();
-            dd($session->get('user'));
             // validate input data
             $data = $this->validate([                      
                 "email" => [
@@ -41,7 +40,7 @@ class LoginController extends BaseController
                 if($user && $verifyPassword ){ 
                     $logged_in = true;                      
                     $session->set($user);                     
-                    return redirect()->route('admin/dashboard');
+                    return redirect()->route('dashboard');
                 }else{
                     $session->setFlashdata('message', 'Invalid email or password!');
                     return view('auth/login');

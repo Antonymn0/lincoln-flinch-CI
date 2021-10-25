@@ -37,7 +37,7 @@ $routes->get('/', 'Home::index');
 ///////////////////// CUSTOM ROUTES BELOW///////////////////////////////////////////////////////////
 
 // auth routes
-$routes->get('register_form', 'Web/User/UsersController::new');
+$routes->get('register', 'Web/User/UsersController::new');
 $routes->post('register', 'Web/User/UsersController::create');
 $routes->get('login', 'Web/User/LoginController::index'); //login form
 $routes->post('login', 'Web/User/LoginController::login');
@@ -51,11 +51,13 @@ $routes->post('login', 'Web/User/LoginController::login');
     //users routes
     $routes->get('new-user', 'Web\User\UsersController::new');
     $routes->post('admin-new-user', 'Web\User\UsersController::adminCreateUser');
-    $routes->get('all-users', 'Web\User\UsersController::index');
+    $routes->get('users/(:alpha)', 'Web\User\UsersController::index/$1');
     $routes->get('edit-user/(:any)', 'Web\User\UsersController::edit/$1');
     $routes->post('update-user/(:any)', 'Web\User\UsersController::update/$1');
     $routes->get('del-user/(:num)', 'Web\User\UsersController::delete/$1');
     $routes->get('trashed-users', 'Web\User\UsersController::getTrashedUsers');
+    $routes->get('registration-pending', 'Web\User\UsersController::registrationPending');
+    $routes->get('registration-complete', 'Web\User\UsersController::registrationComplete');
     $routes->get('restore-user/(:any)', 'Web\User\UsersController::restoreDeletedUser/$1');
     $routes->get('parmanently-del-user/(:any)', 'Web\User\UsersController::parmanentlyDeleteUser/$1');
 

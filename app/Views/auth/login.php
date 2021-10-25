@@ -22,7 +22,7 @@
                 <input type="password" name="password" id="password" class="form-control">
                
                 <input type="submit" value="Login" class="btn btn-warning m-3"> or 
-                <a href="/register_form" class="btn btn-sm m-3 "> <em> <u> Register </u> </em> </a>
+                <a href="/register" class="btn btn-sm m-3 "> <em> <u> Register </u> </em> </a>
             </div>
         </form>
     </div>

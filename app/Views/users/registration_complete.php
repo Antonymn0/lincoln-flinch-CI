@@ -11,9 +11,9 @@
         <div class="alert alert-success mt-2 w-50">
             <?= session('success');?>
         </div>  
-     <?php endif ?>  
+     <?php endif ?>   
      
-    <h1> <?= $pageTitle;?></h1>
+    <h1> Registration complete</h1>
     <div>
         <table class="table table-sm table-striped ">
             <thead>
@@ -30,14 +30,15 @@
                 <?php foreach ($users as $item):?>                 
                 <?php $counter++;?>
                 <tr> 
-                    <td><?= $counter;?></td>
-                    <td><?= $item['name'];?></td>
-                    <td><?= $item['email'];?></td>
-                    <td><?= $item['status'];?></td>
-                    <td> <a href="<?= 'edit-user/'. $item['id'];?>" class="btn btn-primary btn-sm">Edit</a> 
-                         <a href="<?= 'del-user/'. $item['id'];?>" class="btn btn-danger delete btn-sm" onclick="confirmDel(event)">Del</a>
+                    <td><?php echo $counter;?></td>
+                    <td><?php echo $item['name'];?></td>
+                    <td><?php echo $item['email'];?></td>
+                    <td><?php echo $item['status'];?></td>
+                    <td> <a href="<?php echo 'edit-user/'. $item['id'];?>" class="btn btn-primary btn-sm">Edit</a> 
+                         <a href="<?php echo 'del-user/'. $item['id'];?>" class="btn btn-danger delete btn-sm" onclick="confirmDel(event)">Del</a>
                     </td>
-                </tr>                
+                </tr>
+                
                 <?php endforeach;?>
             </tbody>
         </table>
