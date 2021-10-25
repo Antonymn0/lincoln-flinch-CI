@@ -1,8 +1,8 @@
-# Lincoln-flinch CodeIgniter 4 Application 
+# Lincoln-flinch CodeIgniter4 Application 
 
 ## What is Lincoln-flinch?
 
-A simple codignitor application implenitng only user and login methods
+A simple codignitor application implenting only user model and login methods
 
 ## Installation & updates
 
