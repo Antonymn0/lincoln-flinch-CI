@@ -8,13 +8,15 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        $model = model('UserModel');
-        $model->insert([
-            'name'=> static::faker()->name,
-            'email'=> static::faker()->email,
-            'status'=> static::faker()->randomElement(['complete', 'pending']),
-            'password'=> static::faker()->password,
-            'deleted_at'=> null,
-        ]);
+        for ($i = 0; $i < 10; $i++) { 
+            $model = model('UserModel');
+            $model->insert([
+                'name'=> static::faker()->name,
+                'email'=> static::faker()->email,
+                'status'=> static::faker()->randomElement(['complete', 'pending']),
+                'password'=> static::faker()->password,
+                'deleted_at'=> null,
+            ]);
+        }
     }
 }
