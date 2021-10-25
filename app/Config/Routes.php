@@ -42,7 +42,7 @@ $routes->post('register', 'Web/User/UsersController::create');
 $routes->get('login', 'Web/User/LoginController::index'); //login form
 $routes->post('login', 'Web/User/LoginController::login');
 
-$routes->group("admin",["filter" => "auth"], function($routes){
+// $routes->group("admin",["filter" => "auth"], function($routes){
     $routes->get('logout', 'Web/User/LoginController::logout');
 
     // dashboard routes
@@ -59,7 +59,7 @@ $routes->group("admin",["filter" => "auth"], function($routes){
     $routes->get('restore-user/(:any)', 'Web\User\UsersController::restoreDeletedUser/$1');
     $routes->get('parmanently-del-user/(:any)', 'Web\User\UsersController::parmanentlyDeleteUser/$1');
 
-});
+// });
 
 /*
  * --------------------------------------------------------------------
