@@ -9,7 +9,8 @@ use CodeIgniter\Database\Config;
  */
 class Database extends Config
 {
-        
+
+    
     /**
      * The directory that holds the Migrations
      * and Seeds directories.
@@ -31,7 +32,30 @@ class Database extends Config
      *
      * @var array
      */
-    public $default = [
+    // LOCAL
+    // public $default = [
+    //     'DSN'      => '',
+    //     'hostname' => 'localhost',
+    //     'username' => '',
+    //     'password' => '',
+    //     'database' => '',
+    //     'DBDriver' => 'MySQLi',
+    //     'DBPrefix' => '',
+    //     'pConnect' => false,
+    //     'DBDebug'  => (ENVIRONMENT !== 'production'),
+    //     'charset'  => 'utf8',
+    //     'DBCollat' => 'utf8_general_ci',
+    //     'swapPre'  => '',
+    //     'encrypt'  => false,
+    //     'compress' => false,
+    //     'strictOn' => false,
+    //     'failover' => [],
+    //     'port'     => 3306,
+        
+    // ];
+
+    //HEROKU
+      public $default = [
         'DSN'      => '',
         'hostname' => 'us-cdbr-east-04.cleardb.com',
         'username' => 'bb0f4efdb59a56',
@@ -81,7 +105,7 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
- $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
         // we don't overwrite live data on accident.
@@ -89,6 +113,4 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
     }
-
-   
 }
