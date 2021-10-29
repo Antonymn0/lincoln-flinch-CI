@@ -15,7 +15,7 @@
             <div class="align-items-center align-content-center">
 				<div class="form-group">
 					 <label for="name"> Name</label>
-					<input type="text" name="name" id="name" placeholder="name" class="form-control">
+					<input type="text" name="name" id="name" placeholder="name" class="form-control" min="5">
 					<?php if (isset($validation)): ?>
                         <p class="text-danger small text-center m-0 p-0">
                         <small><?=  $validation->getError('name'); ?> </small> 

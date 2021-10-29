@@ -10,8 +10,8 @@
             <a href="#" class="d-flex align-items-center text-center text-white text-decoration-none ml-3 ">
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 navbarItem">  
                 <span class="fs-4 navbarItem">
-                  
-                   <?= session('user');?> Admin
+                 
+                   <?= session()->get('name');?> 
                   
                 </span>                
             </a>
@@ -21,38 +21,38 @@
     
     <ul class="nav nav-pills navbarItem flex-column mb-auto">
       <li class="nav-item">
-        <a href="/dashboard" class="nav-link text-white active" >
+        <a href="/admin/dashboard" class="nav-link text-white active" >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Dashboard
         </a>
       </li>
       <li class="nav-item">
-        <a href="/new-user" class="nav-link text-white " >
+        <a href="/admin/admin-new-user" class="nav-link text-white " >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           New user
         </a>
       </li>
       
       <li class="nav-item">
-        <a href="/users/all" class="nav-link text-white " >
+        <a href="/admin/users/all" class="nav-link text-white " >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           All Users
         </a>
       </li>
      <li>
-        <a href="/users/complete" class="nav-link text-white">
+        <a href="/admin/users/complete" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
           Registration complete
         </a>
       </li>
       <li>
-        <a href="/users/pending" class="nav-link text-white">
+        <a href="/admin/users/pending" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
           Registration Pending
         </a>
       </li>
        <li>
-        <a href="/trashed-users" class="nav-link text-white">
+        <a href="/admin/trashed-users" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           Trash
         </a>
@@ -80,7 +80,7 @@
        <hr class="navbarItem">
       <li>
        
-        <a class="text-white nav-link " href="/logout">Sign out</a>
+        <a class="text-white nav-link " href="/admin/logout" onclick="logOut(event)">Sign out</a>
       </li>
     </ul>
     
@@ -113,6 +113,12 @@
           item.classList.remove("active");
         }
         e.target.classList.toggle('active');
+       
+	  }
+    function logOut(e) { 
+        if(!confirm("Do you want to logout?") ){
+            e.preventDefault();
+        }
        
 	  }
 

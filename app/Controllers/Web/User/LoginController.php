@@ -40,13 +40,19 @@ class LoginController extends BaseController
                   $verifyPassword = $password == $user['password'] ? true : false;   // verify password  
                 }else{
                     $session->setFlashdata('message', 'Invalid email or password!');
-                   return view('auth/login'); 
+                    return view('auth/login'); 
                 }
                 
                 if($user && $verifyPassword ){ 
-                    $logged_in = true;                      
-                    $session->set($user);                     
-                    return redirect()->route('dashboard');
+                    $user_data= [
+                        'loggedIn' => true,
+                        'name' => $user ['name'],
+                        'email' => $user ['email'],
+                        'id' => $user['id'],
+                    ];
+                                          
+                    $session->set( 'user', $user_data);
+                    return redirect()->route('admin/dashboard');
                 }else{
                     $session->setFlashdata('message', 'Invalid email or password!');
                     return view('auth/login');
@@ -55,10 +61,7 @@ class LoginController extends BaseController
                 $session->setFlashdata('message', 'Invalid credentials');
                 return view('auth/login');
             }
-        } else{
-            $session->setFlashdata('message', 'Bad request method!');
-            return view('auth/login');
-        }           
+        }            
     }
 
     // logout user
