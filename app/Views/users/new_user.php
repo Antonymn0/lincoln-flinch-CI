@@ -4,7 +4,7 @@
 <?= $this->include('layouts/sideNav') ?>
     <div class="container col-md-9">        
         <div class="p-5">
-            <form action="admin/admin-new-user" method="POST" class="border rounded p-2">
+            <form action="/admin/admin-new-user" method="POST" class="border rounded p-2">
                <h1 class="text-center"> New user</h1> 
                 <div class="form-group p-2">
                     <label for="exampleInputname">Name</label>
