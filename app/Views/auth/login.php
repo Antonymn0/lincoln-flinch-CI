@@ -4,9 +4,8 @@
 
 <!-- CONTENT -->
 
-<section>
-	 
-    <div class="container border p-5 w-50 rounded header">
+<section class="d-flex h-100">	 
+    <div class="container col-md-6 border rounded my-5 p-5 mx-auto">
 		<?php if(session()->getFlashdata('message')):?>
 			<p class="alert alert-danger w-80 text-center p-1 mx-auto mt-0">
 				<?= session()->getFlashdata('message') ?>
@@ -28,7 +27,7 @@
     </div>
 </section>
 
-</div>
+
 
 
 <?= $this->endSection() ?>

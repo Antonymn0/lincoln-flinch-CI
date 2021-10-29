@@ -32,7 +32,7 @@ class Database extends Config
      *
      * @var array
      */
-    // LOCAL
+    // LOCAL configuration
     // public $default = [
     //     'DSN'      => '',
     //     'hostname' => 'localhost',
@@ -54,7 +54,7 @@ class Database extends Config
         
     // ];
 
-    //HEROKU
+    //HEROKU configuration
       public $default = [
         'DSN'      => '',
         'hostname' => 'us-cdbr-east-04.cleardb.com',
@@ -72,8 +72,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3306,
-        
+        'port'     => 3306,        
     ];
 
     /**

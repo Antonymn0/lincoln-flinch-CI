@@ -37,7 +37,7 @@ $routes->get('/', 'Home::index');
 ///////////////////// CUSTOM ROUTES BELOW///////////////////////////////////////////////////////////
 
 // auth routes
-$routes->get('register', 'Web/User/UsersController::new');
+$routes->get('register', 'Web/User/UsersController::adminNewUserForm');
 $routes->post('register', 'Web/User/UsersController::create');
 $routes->get('login', 'Web/User/LoginController::index'); //login form
 $routes->post('login', 'Web/User/LoginController::login');
@@ -49,7 +49,7 @@ $routes->post('login', 'Web/User/LoginController::login');
     $routes->get('dashboard', 'Web/Dashboard/DashboardController::index');
 
     //users routes
-    $routes->get('new-user', 'Web\User\UsersController::new');
+    // $routes->get('new-user', 'Web\User\UsersController::new');
     $routes->post('admin-new-user', 'Web\User\UsersController::adminCreateUser');
     $routes->get('users/(:alpha)', 'Web\User\UsersController::index/$1');
     $routes->get('edit-user/(:any)', 'Web\User\UsersController::edit/$1');

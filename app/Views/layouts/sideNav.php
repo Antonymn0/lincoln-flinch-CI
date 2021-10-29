@@ -92,6 +92,16 @@
 </div>
 
 <script>
+  function toggleMenu() {
+		var navbarItems = document.getElementsByClassName('navbarItem');
+		for (var i = 0; i < navbarItems.length; i++) {
+			var item = navbarItems[i];
+			item.classList.toggle("hidden");
+		}
+		document.getElementById('sidenav1').classList.toggle('side-nav');
+		document.getElementById('sidenav2').classList.toggle('side-nav');
+	}
+  
     var nav_bar_items = document.getElementsByClassName('nav-link');
     for (var i = 0; i < nav_bar_items.length; i++) {
           var item = nav_bar_items[i];
@@ -105,5 +115,6 @@
         e.target.classList.toggle('active');
        
 	  }
+
 
  </script>

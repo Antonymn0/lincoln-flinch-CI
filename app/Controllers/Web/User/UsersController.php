@@ -48,7 +48,7 @@ class UsersController extends BaseController
      */
     public function adminNewUserForm()
     {
-       return redirect()->route('new-user');
+       return view('auth/register_form');
     }
 
     /**

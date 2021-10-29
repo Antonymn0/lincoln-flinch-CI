@@ -36,7 +36,13 @@ class LoginController extends BaseController
                 $password = $this->request->getPost('password');
 
                 $user = $model->where('email', $email)->first();   // fetch user by email
-                $verifyPassword = $password == $user['password'] ? true: false;   // verify password
+                if($user){
+                  $verifyPassword = $password == $user['password'] ? true : false;   // verify password  
+                }else{
+                    $session->setFlashdata('message', 'Invalid email or password!');
+                   return view('auth/login'); 
+                }
+                
                 if($user && $verifyPassword ){ 
                     $logged_in = true;                      
                     $session->set($user);                     

@@ -29,6 +29,7 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			text-rendering: optimizeLegibility;
+			
 		}
 		header {
 			background-color: rgba(62, 62, 62, 1);
@@ -102,6 +103,9 @@
 			overflow: visible;
 			width: 40px;
 		}
+		main{
+			min-height:81vh;
+		}
 		.hidden {
 			display: none;
 			}
@@ -109,6 +113,7 @@
 			height:90vh;
 			max-width:70px;
 			margin:0;
+			padding:0 5px;
 		}
 		a:active{	
 			color: #fff;
@@ -133,9 +138,7 @@
 			font-weight: 300;
 		}
 		section {
-			margin: 0 auto;
-			max-width: 1100px;
-			padding: 2.5rem 1.75rem 3.5rem 1.75rem;
+			
 		}
 		section h1 {
 			margin-bottom: 2.5rem;
@@ -194,11 +197,8 @@
 			header .menu-toggle {
 				padding: 0 1rem;
 			}
-			header .menu-item {
-				background-color: rgba(244, 245, 246, 1);
-				border-top: 1px solid rgba(242, 242, 242, 1);
-				margin: 0 15px;
-				width: calc(100% - 30px);
+			header .menu-item {		
+				
 			}
 			header .menu-toggle {
 				display: block;
@@ -214,6 +214,10 @@
 				background-color: rgba(221, 72, 20, .7);
 				color: rgba(255, 255, 255, .8);
 			}
+			.side-nav{
+			height:auto;
+			padding:5px;			
+			}
 		}
 	</style>
 </head>
@@ -228,11 +232,7 @@
 					<h2>Lincoln flinch</h2>					
 				</a>
 			</li>
-			<li class="menu-toggle">
-			<a href="">	
-				<button onclick="toggleMenu();">rrrrrrr</button>
-				</a>
-			</li>
+			
 			<li class="menu-item "><a href="#">Home</a></li>
 			<li class="menu-item "><a href="#" target="_blank">About</a>
 			</li>
@@ -258,15 +258,7 @@
 
 <!-- SCRIPTS -->
 <script>
-	function toggleMenu() {
-		var navbarItems = document.getElementsByClassName('navbarItem');
-		for (var i = 0; i < navbarItems.length; i++) {
-			var item = navbarItems[i];
-			item.classList.toggle("hidden");
-		}
-		document.getElementById('sidenav1').classList.toggle('side-nav');
-		document.getElementById('sidenav2').classList.toggle('side-nav');
-	}
+	
 </script>
  <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
