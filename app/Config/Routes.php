@@ -49,7 +49,7 @@ $routes->post('login', 'Web/User/LoginController::login');
     $routes->get('dashboard', 'Web/Dashboard/DashboardController::index');
 
     //users routes
-    $routes->get('new-user', 'Web\User\UsersController::new');
+    $routes->post('new-user', 'Web\User\UsersController::adminCreateUser');
     $routes->get('admin-new-user', 'Web\User\UsersController::new');
     $routes->post('admin-new-user', 'Web\User\UsersController::adminCreateUser');
     $routes->get('users/(:alpha)', 'Web\User\UsersController::index/$1');
