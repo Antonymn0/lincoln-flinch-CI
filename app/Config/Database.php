@@ -62,7 +62,7 @@ class Database extends Config
         'hostname' => 'us-cdbr-east-04.cleardb.com',
         'username' => 'bb0f4efdb59a56',
         'password' => '05082c1e',
-        'database' => 'cleardb.com',
+        'database' => 'heroku_219c4290a2f87ca',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -106,7 +106,7 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
-
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
         // we don't overwrite live data on accident.
