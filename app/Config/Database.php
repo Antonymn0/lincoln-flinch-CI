@@ -62,7 +62,7 @@ class Database extends Config
         'hostname' => 'us-cdbr-east-04.cleardb.com',
         'username' => 'bb0f4efdb59a56',
         'password' => '05082c1e',
-        'database' => 'https://lincoln-flinch.herokuapp.com/',
+        'database' => 'https://lincoln-flinch.herokuapp.com',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
