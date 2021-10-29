@@ -27,6 +27,8 @@ class Database extends Config
      */
     public $defaultGroup = 'default';
 
+   
+
     /**
      * The default database connection.
      *
@@ -60,7 +62,7 @@ class Database extends Config
         'hostname' => 'us-cdbr-east-04.cleardb.com',
         'username' => 'bb0f4efdb59a56',
         'password' => '05082c1e',
-        'database' => '',
+        'database' => 'https://lincoln-flinch.herokuapp.com/',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -72,7 +74,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3306,        
+                
     ];
 
     /**
