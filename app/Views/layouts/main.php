@@ -214,7 +214,7 @@
 			text-decoration:underline;
 			color: #3f4142;
 		}
-		@media (max-width: 750px) {
+		@media (max-width: 900px) {
 			header ul {
 				padding: 0;
 			}

@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <?= $this->include('layouts/sideNav') ?>
-    <div class="container col-md-9">  
+    <div class="container col-sm-9 mx-auto">  
         <?php if(session('success')) :?>
             <div class="alert alert-success mt-2 col-sm-6 text-center mx-auto">
                 <?= session('success');?>
