@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <?= $this->include('layouts/sideNav') ?>
     <div class="container col-md-9 pt-2 pb-2">        
-        <div class="m-3">
+        <div class="m-3 col-md-10 mx-auto">
             <form action="/admin/admin-new-user" method="POST" class="border rounded p-2">
                <h1 class="text-center"> New user</h1> 
                 <div class="form-group p-2">
@@ -22,6 +22,15 @@
                      <?php if (isset($validation)): ?>
                         <p class="text-danger small text-center m-0 p-0">
                         <small><?=  $validation->getError('email'); ?> </small> 
+                        </p>
+                     <?php endif; ?>
+                </div>
+                <div class="form-group p-2">
+                    <label for="exampleInputEmail1">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="exampleInputEmail1"  placeholder="Enter Phone number">
+                     <?php if (isset($validation)): ?>
+                        <p class="text-danger small text-center m-0 p-0">
+                        <small><?=  $validation->getError('phone'); ?> </small> 
                         </p>
                      <?php endif; ?>
                 </div>

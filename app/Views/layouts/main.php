@@ -205,6 +205,15 @@
 			color: rgba(200, 200, 200, 1);
 			padding: .25rem 1.75rem;
 		}
+		.pagination ul li a{
+			padding:10px;
+			text-decoration:none;
+			color:#6288aa;
+		}
+		.pagination ul li a:hover{
+			text-decoration:underline;
+			color: #3f4142;
+		}
 		@media (max-width: 750px) {
 			header ul {
 				padding: 0;

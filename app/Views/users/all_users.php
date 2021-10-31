@@ -8,7 +8,7 @@
 <div class="col-md-9 p-3">
 
     <?php if(session('success')) :?>
-        <div class="alert alert-success mt-2 w-50">
+        <div class="alert alert-success mt-2 col-sm-6 mx-auto">
             <?= session('success');?>
         </div>  
      <?php endif ?>  
@@ -21,6 +21,7 @@
                     <td scope="col">Id</td>
                     <td>Name</td>
                     <td>Email</td>
+                    <td>Phone</td>
                     <td>Status</td>
                     <td>Action</td>
                 </t>
@@ -33,6 +34,7 @@
                     <td><?= $counter;?></td>
                     <td><?= $item['name'];?></td>
                     <td><?= $item['email'];?></td>
+                    <td><?= $item['phone'];?></td>
                     <td><?= $item['status'];?></td>
                     <td>
                          <a href="<?= '/admin/edit-user/'. $item['id'];?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a> 
@@ -42,6 +44,10 @@
                 <?php endforeach;?>
             </tbody>
         </table>
+    </div>
+
+    <div class="container pagination p-3 col-sm-6 mx-auto">
+       <?= $pager->links(); ?>       
     </div>
 </div>
 <script>

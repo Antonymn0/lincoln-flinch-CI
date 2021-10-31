@@ -17,8 +17,11 @@ class UserModel extends Model
     protected $allowedFields        = [
         'name',
         'email',
+        'phone',
         'status',
         'password',
+        'file',
+        'file_type',
         'deleted_at',
         'updated_at',
     ];

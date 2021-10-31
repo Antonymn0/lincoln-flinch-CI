@@ -24,6 +24,21 @@ class Users extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 ],
+            'phone' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null'=>true,
+                ],
+            'file' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null'=>true,
+                ],
+            'file_type' => [
+                'type' => 'VARCHAR',
+                'constraint' => 5,
+                'null'=>true,
+                ],
             'status' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,

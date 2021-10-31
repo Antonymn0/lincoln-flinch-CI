@@ -6,8 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\UserModel;
 
 class UsersController extends BaseController
-{
-    
+{    
     /**
      * Return an array of resource objects, themselves in array format
      *
@@ -15,16 +14,19 @@ class UsersController extends BaseController
      */
     public function index($search_term='all') 
     {
+       
+        
         $data =array();
         $userModel = new UserModel();  
-            $db      = \Config\Database::connect();
-            $builder = $db->table('users');
+           
         if($search_term){
             if($search_term == 'complete' || $search_term == 'pending'){
-                $data['users'] = $userModel->where('status', $search_term )->findAll();
+                $data['users'] = $userModel->where('status', $search_term )->paginate(5);
                 $data['pageTitle'] = ucwords($search_term)  . ' users';
+                $data['pager'] = $userModel->pager;
             }else{
-                $data['users'] = $userModel->findAll();
+                $data['users'] = $userModel->paginate(3);
+                $data['pager'] = $userModel->pager;
                 $data['pageTitle'] = 'All users';
             }    
         }  
@@ -118,7 +120,7 @@ class UsersController extends BaseController
         helper('session');
         if ($this->request->getMethod() == "post") {
         $validation =  \Config\Services::validation();
-
+        // validate input
         $data = $this->validate([
             "name" => [
                 "label" => "First Name", 
@@ -128,6 +130,10 @@ class UsersController extends BaseController
                 "label" => "Email", 
                 "rules" => "required|min_length[3]|max_length[20]|valid_email|is_unique[users.email]"
             ],
+            "phone" => [
+                "label" => "Phone", 
+                "rules" => "required|min_length[7]|max_length[20]|is_unique[users.phone]"
+            ],
             "password" => [
                 "label" => "Password", 
                 "rules" => "required|min_length[4]|max_length[20]"
@@ -136,6 +142,7 @@ class UsersController extends BaseController
                 "label" => "confirm_password", 
                 "rules" => "matches[password]"
             ],
+            
            ]);
         $model = new UserModel();
 
@@ -143,12 +150,14 @@ class UsersController extends BaseController
             $userData=[
                 'name' => $this->request->getPost('name'),
                 'email' => $this->request->getPost('email'),
+                'phone' => $this->request->getPost('phone'),
                 'password'=> $this->request->getPost('password'),
             ];
+            
             $model->save($userData);
             $session = session();
             $session->setFlashData("success", "Success, User created!");
-            return redirect()->route('all-users');
+            return redirect()->to('/admin/users/all');
         } else {
             $data["validation"] = $validation->getErrors();
             return view('users/new_user', [
@@ -180,13 +189,58 @@ class UsersController extends BaseController
      * @return mixed
      */
     public function update($id = null)
-    {
+    { 
+        $img='';
+        $data = $this->validate([
+            "name" => [
+                "label" => "First Name", 
+                "rules" => "required|min_length[3]|max_length[20]"
+            ],            
+            "email" => [
+                "label" => "Email", 
+                "rules" => "required|min_length[3]|max_length[20]|valid_email|is_unique[users.email]"
+            ],
+            "phone" => [
+                "label" => "Phone", 
+                "rules" => "required|min_length[7]|max_length[20]|is_unique[users.phone]"
+            ],
+            'file' => [
+                "label" => "Image", 
+                'uploaded[file]',
+                'rules' => "is_image[file]|uploaded[file]|max_size[file,2048]|mime_in[file,image/png,image/jpg]",
+            ],
+            "password" => [
+                "label" => "Password", 
+                "rules" => "required|min_length[4]|max_length[20]"
+            ],
+            "confirm_password" => [
+                "label" => "confirm_password", 
+                "rules" => "matches[password]"
+            ],
+            
+           ]);
+           
         $model = new UserModel();
+        if($this->request->getPost('file')){
+           try {
+            $img = $this->request->getFile('file');
+            $img->move(WRITEPATH . 'uploads');
+            }
+            catch(Exception $e) {
+            return redirect()->back();
+            } 
+        }        
+        
         $model->update($id, [
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
+            'phone' => $this->request->getPost('phone'),
+            'file' => $img ? $img->getName() : '' ,
+            'file_type' => $img ? $img->getClientMimeType() : '',
         ]);
-        return redirect()->route('all-users');
+         $session = session();
+        $session->setFlashData("success", "Success, User updated!");
+        return redirect()->back();
     }
 
     /**
@@ -197,8 +251,10 @@ class UsersController extends BaseController
     public function getTrashedUsers($id = null)
     {
         $userModel = new UserModel();
-        $data['users'] = $userModel->onlyDeleted()->findAll();
+        $data['users'] = $userModel->onlyDeleted()->paginate(5);
         $data['pageTitle'] = 'Trashed users';
+        $data['users'] = $userModel->paginate(3);
+        $data['pager'] = $userModel->pager;
         return view('users/trashed_users', $data);
     }
     /**
@@ -210,6 +266,8 @@ class UsersController extends BaseController
     {
         $userModel = new UserModel();
         $userModel->delete([$id]);
+        $session = session();
+        $session->setFlashData("success", "Success, User deleted!");
         return redirect()->to('/admin/users/all');
     }
     /**

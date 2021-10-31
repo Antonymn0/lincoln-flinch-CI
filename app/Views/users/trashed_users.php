@@ -10,7 +10,7 @@
 <div class=" container col-md-9 pt-3 p-2 ">
 
     <?php if(session('success')) :?>
-        <div class="alert alert-success mt-2 w-50">
+        <div class="alert alert-success mt-2 col-sm-6 mx-auto">
             <?= session('success');?>
         </div>  
      <?php endif ?>   
@@ -44,6 +44,9 @@
                 <?php endforeach;?>
             </tbody>
         </table>
+    </div>
+    <div class="container pagination p-3 col-sm-6 mx-auto">
+        <?= $pager->links(); ?>       
     </div>
 </div>
 

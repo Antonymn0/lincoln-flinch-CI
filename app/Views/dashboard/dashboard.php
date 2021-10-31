@@ -9,7 +9,7 @@
         <!-- Panels     -->
        <div class="row  justify-content-center mx-auto ">
             <div class="col-md-3 grid-margin mb-1  stretch-card hover-zoom">
-                <div class="card  bg-danger card-rounded text-center">
+                <div class="card  bg-success card-rounded text-center">
                     <div class=" justify-content-center p-2">
                         <h4 class=" text-white mb-4">Registered users</h4>
                         <div class="text-center">
@@ -39,7 +39,7 @@
             </div>
             
             <div class="col-md-3  grid-margin mb-1  stretch-card">
-                <div class="card  bg-success card-rounded text-center hover-zoom">
+                <div class="card  bg-danger card-rounded text-center hover-zoom">
                     <div class=" justify-content-center p-2">
                         <h4 class=" text-white mb-4">Pending</h4>
                         <div class="text-center">
