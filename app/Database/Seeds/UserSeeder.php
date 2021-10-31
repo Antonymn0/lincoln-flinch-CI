@@ -3,12 +3,13 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use Faker\Factory;
 
 class UserSeeder extends Seeder
 {
     public function run()
     {
-        $faker = \Faker\Factory::create();
+        $faker = Factory::create('id');
         for ($i = 0; $i < 10; $i++) { 
             $model = model('UserModel');
             $model->insert([
