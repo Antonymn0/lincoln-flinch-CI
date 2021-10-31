@@ -11,10 +11,13 @@
  <!-- Bootstrap core CSS -->
     <link href="assets/bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- Bootstrap icons cdn  -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<!-- STYLES -->
 	<style {csp-style-nonce}>
 		* {
 			transition: background-color 300ms ease, color 300ms ease;
+			transition: transform 0.2s ease;
 		}
 		*:focus {
 			background-color: rgba(221, 72, 20, .2);
@@ -103,6 +106,10 @@
 			overflow: visible;
 			width: 40px;
 		}
+		.hover-zoom:hover {
+			transform: scale(1.1);
+			box-shadow: 0 2px 3px 0 rgba(22, 22, 26, 0.18);
+			}
 		main{
 			min-height:81vh;
 		}

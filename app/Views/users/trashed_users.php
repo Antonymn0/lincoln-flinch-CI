@@ -7,7 +7,7 @@
 
 
 
-<div class="col-md-9 pt-3">
+<div class=" container col-md-9 pt-3 p-2 ">
 
     <?php if(session('success')) :?>
         <div class="alert alert-success mt-2 w-50">
@@ -15,9 +15,9 @@
         </div>  
      <?php endif ?>   
      
-    <h1> Trashed users</h1>
-    <div>
-        <table class="table table-sm table-striped ">
+    <h1 class="col-md-6 text-center ml-5"> Trashed users</h1>
+    <div class="table-responsive p-3 m-3 card  ">
+        <table class="table table-sm table-striped table-hover ">
             <thead>
                 <tr class="">
                     <td>Id</td>
@@ -36,8 +36,8 @@
                     <td><?php echo $item['name'];?></td>
                     <td><?php echo $item['email'];?></td>
                     <td><?php echo date("Y-m-d H:m:s", strtotime($item['deleted_at']));?></td>
-                    <td> <a href="<?php echo 'restore-user/'. $item['id'];?>" class="btn btn-primary btn-sm" onclick="confirmRestore(event)">Restore</a> 
-                         <a href="<?php echo 'parmanently-del-user/'. $item['id'];?>" class="btn btn-danger btn-sm" onclick="confirmDel(event)">Delete parmanently</a>
+                    <td> <a href="<?php echo 'restore-user/'. $item['id'];?>" class="btn btn-primary btn-sm" onclick="confirmRestore(event)"><i class="bi bi-arrow-counterclockwise"></i></a> 
+                         <a href="<?php echo 'parmanently-del-user/'. $item['id'];?>" class="btn btn-danger btn-sm" onclick="confirmDel(event)"><i class="bi bi-trash2-fill"></i></a>
                     </td>
                 </tr>
                 
@@ -54,7 +54,7 @@
         }
     } 
     function confirmDel(e) {       
-        if(!confirm("Do you want to PARMANENTLY delete this user? \n NB: This action can NOT be undone.") ){
+        if(!confirm("Do you want to PARMANENTLY  delete this user? \n NB: This action can NOT be undone.") ){
             e.preventDefault();
         }
     } 

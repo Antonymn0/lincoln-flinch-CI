@@ -34,8 +34,9 @@
                     <td><?= $item['name'];?></td>
                     <td><?= $item['email'];?></td>
                     <td><?= $item['status'];?></td>
-                    <td> <a href="<?= 'edit-user/'. $item['id'];?>" class="btn btn-primary btn-sm">Edit</a> 
-                         <a href="<?= 'del-user/'. $item['id'];?>" class="btn btn-danger delete btn-sm" onclick="confirmDel(event)">Del</a>
+                    <td>
+                         <a href="<?= '/admin/edit-user/'. $item['id'];?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a> 
+                         <a href="<?= '/admin/del-user/'. $item['id'];?>" class="btn btn-danger delete btn-sm" onclick="confirmDel(event)"><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>                
                 <?php endforeach;?>

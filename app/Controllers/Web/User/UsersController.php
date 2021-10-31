@@ -13,7 +13,7 @@ class UsersController extends BaseController
      *
      * @return mixed
      */
-    public function index($search_term=null) 
+    public function index($search_term='all') 
     {
         $data =array();
         $userModel = new UserModel();  
@@ -197,8 +197,9 @@ class UsersController extends BaseController
     public function getTrashedUsers($id = null)
     {
         $userModel = new UserModel();
-        $users['users'] = $userModel->onlyDeleted()->findAll();
-        return view('users/trashed_users', $users);
+        $data['users'] = $userModel->onlyDeleted()->findAll();
+        $data['pageTitle'] = 'Trashed users';
+        return view('users/trashed_users', $data);
     }
     /**
      * Delete the designated resource object from the model
@@ -209,7 +210,7 @@ class UsersController extends BaseController
     {
         $userModel = new UserModel();
         $userModel->delete([$id]);
-        return redirect()->route('all-users');
+        return redirect()->to('/admin/users/all');
     }
     /**
      * Restore  the designated resource object from the model
@@ -224,7 +225,7 @@ class UsersController extends BaseController
         );
         $session = session();
         $session->setFlashData("success", "Success, User Restored!");
-        return redirect()->route('trashed-users');
+        return redirect()->to('admin/trashed-users');
 
     }
     /**
@@ -234,12 +235,11 @@ class UsersController extends BaseController
      */
     public function parmanentlyDeleteUser($id = null)
     {
-        $model = new UserModel();        
-        $model->withDeleted(true);
-        $user = $model->delete($id);
+        $model = new UserModel(); 
+        $user = $model->delete($id, true);
 
         $session = session();
         $session->setFlashData("success", "Success, User PARMANENTLY deleted!");
-        return redirect()->route('trashed-users');
+        return redirect()->to('admin/trashed-users');
     }
 }
