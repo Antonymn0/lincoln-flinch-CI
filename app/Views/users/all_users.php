@@ -5,7 +5,7 @@
 
 
 
-<div class="col-md-9">
+<div class="col-md-9 p-3">
 
     <?php if(session('success')) :?>
         <div class="alert alert-success mt-2 w-50">
@@ -13,8 +13,8 @@
         </div>  
      <?php endif ?>  
      
-    <h1> <?= $pageTitle;?></h1>
-    <div>
+    <h1 class="w-50 ml-2 text-center"> <?= $pageTitle;?></h1>
+    <div class="table-responsive card p-2">
         <table class="table table-sm table-striped ">
             <thead>
                 <tr class="">

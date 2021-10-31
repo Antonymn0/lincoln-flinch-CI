@@ -2,8 +2,8 @@
 
 <?= $this->section('content') ?>
 <?= $this->include('layouts/sideNav') ?>
-    <div class="container col-md-9">        
-        <div class="p-5">
+    <div class="container col-md-9 pt-2 pb-2">        
+        <div class="m-3">
             <form action="/admin/admin-new-user" method="POST" class="border rounded p-2">
                <h1 class="text-center"> New user</h1> 
                 <div class="form-group p-2">

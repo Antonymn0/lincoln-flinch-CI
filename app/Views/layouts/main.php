@@ -126,6 +126,9 @@
 			color: #fff;
 			background-color: #0d6efd; 
 		}
+		.table, .table-responsive{
+			overflow:scroll;
+		}
 		header .menu-toggle button:hover,
 		header .menu-toggle button:focus {
 			background-color: rgba(221, 72, 20, .8);
