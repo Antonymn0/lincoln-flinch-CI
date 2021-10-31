@@ -17,7 +17,7 @@
 	<style {csp-style-nonce}>
 		* {
 			transition: background-color 300ms ease, color 300ms ease;
-			transition: transform 0.2s ease;
+			transition: transform 0.3s ease;
 		}
 		*:focus {
 			background-color: rgba(221, 72, 20, .2);
@@ -117,9 +117,11 @@
 			font-weight:bold;
 		}
 		.hidden {
+			transition: width 2s, height 2s, transform 2s;
 			display: none;
 			}
 		.side-nav{
+			transform: scale(1.02);			
 			height:90vh;
 			max-width:70px;
 			margin:0;
@@ -227,7 +229,9 @@
 			height:auto;
 			padding:5px;					
 			}
-			
+			.nabvbarItem-mobile{
+				display:none;
+			}
 			
 		}
 	</style>
@@ -237,22 +241,20 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <header class="bg-dark text-white">
 	<div class="menu  row">
-		<ul class="d-flex justify-content-between m-0 p-0">
-			<li class="logo">
-				<a href="#">
+		<div class="logo col-sm-4">
+			<a href="#" class="text-white text-decoration-none">
 					<h2>Lincoln flinch</h2>					
 				</a>
-			</li>
-			<li class=" float-right">
-				<ul class="p-0 m-0 flex-end">
-					<li class="menu-item "><a href="#">Home</a></li>
-					<li class="menu-item "><a href="#" target="_blank">About</a>
-					</li>
-					<li class="menu-item "><a href="#" target="_blank">Contact</a></li>
-				</ul>
-			</li>
-			
-		</ul>
+		</div>
+		<div class="col-sm-8 p-0 m-0">
+			<ul class="p-0 m-0 flex-end">
+				<li class="menu-item "><a href="#">Home</a></li>
+				<li class="menu-item "><a href="#" target="_blank">About</a>
+				</li>
+				<li class="menu-item "><a href="#" target="_blank">Contact</a></li>
+			</ul>
+		</div>
+		
 		
 	</div>
 </header>

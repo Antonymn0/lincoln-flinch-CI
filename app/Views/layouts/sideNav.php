@@ -1,7 +1,7 @@
 
 <div class="container  col-md-3 side-nav-mobile " id="sidenav1" >
 
-    <div class="d-flex  flex-column  flex-shrink-0 p-2 pt-0 text-white bg-dark side-nav-mobile" id="sidenav2">   
+      <div class="d-flex  flex-column  flex-shrink-0 p-2 pt-0 text-white bg-dark side-nav-mobile" id="sidenav2">   
           <p class=" p-0 row m-0 d-flex justify-content-start">
             <span class="p-0 m-0    navbarItem "></span>
             <span class="  mr-2 display-4 col-sm-2 float-right" style="cursor:pointer;" onclick="toggleMenu()"> &#8801;</span>
@@ -10,10 +10,8 @@
         <div class="d-flex navbar align-items-center align-content-center sidenav1 nabvbarItem-mobile">
             <a href="#" class="d-flex align-items-center text-center text-white text-decoration-none ml-3 nabvbarItem-mobile">
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 navbarItem nabvbarItem-mobile">  
-                <span class="fs-4 navbarItem">
-                 
-                   <?= session()->get('name');?> 
-                  
+                <span class="fs-4 navbarItem">                 
+                   <?= session()->get('name');?>                   
                 </span>                
             </a>
         </div>     
@@ -98,8 +96,8 @@
 		var navbarItems = document.getElementsByClassName('navbarItem');
 		for (var i = 0; i < navbarItems.length; i++) {
 			var item = navbarItems[i];
-			item.classList.toggle("hidden");
-			item.classList.toggle("nabvbarItem-mobile");
+      item.classList.remove("nabvbarItem-mobile"); //remove mobile hidden class
+			item.classList.toggle("hidden");			
 		}
 		document.getElementById('sidenav1').classList.toggle('side-nav');
 		document.getElementById('sidenav2').classList.toggle('side-nav');
