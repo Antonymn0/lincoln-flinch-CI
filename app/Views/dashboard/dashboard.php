@@ -73,8 +73,8 @@
        </div>
 
         <!-- recent tickets section -->
-       <div class=" container mb-2">
-            <div class="card p-3">
+       <div class=" m-1 mb-2">
+            <div class="card p-2">
                 <h4 class="p-2">Recent Tickets</h4>
                 <div class="table-responsive p-2">
                     <table class="table">
@@ -150,7 +150,7 @@
         </div>
 
         <!-- Todo list section -->
-        <div class="container mb-2">
+        <div class="m-1 mb-2">
             <div class="card card-rounded">
                 <div class="card-body">
                 <div class="row">
@@ -162,10 +162,10 @@
                         <button class=" btn btn-icons btn-rounded btn-primary  text-white hover-zoom"><i class="mdi mdi-plus"> </i>+</button>
                         </div>
                     </div>
-                    <div class="list-wrapper">
-                        <ul class="todo-list todo-list-rounded ml-0 pl-0">
+                    <div class="list-wrapper p-0 m-0">
+                        <ul class="todo-list todo-list-rounded m-0 p-0">
                             <li class="d-block border-bottom p-2">
-                                <div class="form-check w-100">
+                                <div class=" w-100">
                                 <label class="form-check-label">
                                     <input class="checkbox" type="checkbox"> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i>
                                 <i class="input-helper"></i></label>
@@ -177,7 +177,7 @@
                                 </div>
                             </li>
                             <li class="d-block border-bottom p-2">
-                                <div class="form-check w-100">
+                                <div class=" w-100">
                                 <label class="form-check-label">
                                     <input class="checkbox" type="checkbox"> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i>
                                 <i class="input-helper"></i></label>
@@ -188,7 +188,7 @@
                                 </div>
                             </li>
                             <li class="d-block border-bottom p-2">
-                                <div class="form-check w-100">
+                                <div class=" w-100">
                                 <label class="form-check-label">
                                     <input class="checkbox" type="checkbox"> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i>
                                 <i class="input-helper"></i></label>
@@ -199,7 +199,7 @@
                                 </div>
                             </li>
                             <li class="border-bottom-0 d-block p-2">
-                                <div class="form-check w-100">
+                                <div class=" w-100">
                                 <label class="form-check-label">
                                     <input class="checkbox" type="checkbox"> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i>
                                 <i class="input-helper"></i></label>
