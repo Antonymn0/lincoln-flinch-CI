@@ -3,10 +3,10 @@
 <?= $this->section('content') ?>
 <!-- CONTENT -->
 
-<section class="d-flex h-100 p-5">
-    <div class="container col-md-6 border rounded my-3 p-5 mx-auto">
+<section class="d-flex h-100 p-2">
+    <div class=" p-5 col-sm-6 col-xs-10 border rounded  mx-auto">
 		<?php if(session()->getFlashdata('message')):?>
-			<p class="alert alert-danger w-50 text-center p-1 mx-auto mt-0">
+			<p class="alert alert-danger  col-sm-6 p-1 mx-auto mt-0">
 				<?= session()->getFlashdata('message') ?>
 			</p>
 		<?php endif;?>
