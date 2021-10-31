@@ -79,9 +79,9 @@
 			color: rgba(221, 72, 20, 1);
 		}
 		header .logo {
-			float: left;
+			
 			height: 44px;
-			padding: .4rem .5rem;
+			
 		}
 		header .logo a:hover{
 			color:rgba(200, 200, 200, 1);
@@ -112,6 +112,9 @@
 			}
 		main{
 			min-height:81vh;
+		}
+		thead{
+			font-weight:bold;
 		}
 		.hidden {
 			display: none;
@@ -200,25 +203,21 @@
 			color: rgba(200, 200, 200, 1);
 			padding: .25rem 1.75rem;
 		}
-		@media (max-width: 559px) {
+		@media (max-width: 750px) {
 			header ul {
 				padding: 0;
 			}
 			header .menu-toggle {
 				padding: 0 1rem;
 			}
-			header .menu-item {		
-				
-			}
+			
 			header .menu-toggle {
 				display: block;
 			}
 			header .hidden {
 				display: none;
 			}
-			header li.menu-item a {
-				background-color: rgba(221, 72, 20, .1);
-			}
+			
 			header li.menu-item a:hover,
 			header li.menu-item a:focus {
 				background-color: rgba(221, 72, 20, .7);
@@ -226,8 +225,10 @@
 			}
 			.side-nav{
 			height:auto;
-			padding:5px;			
+			padding:5px;					
 			}
+			
+			
 		}
 	</style>
 </head>
@@ -235,18 +236,22 @@
 
 <!-- HEADER: MENU + HEROE SECTION -->
 <header class="bg-dark text-white">
-	<div class="menu mr-5 row">
-		<ul class="col-md-10">
+	<div class="menu  row">
+		<ul class="d-flex justify-content-between m-0 p-0">
 			<li class="logo">
 				<a href="#">
 					<h2>Lincoln flinch</h2>					
 				</a>
 			</li>
-			
-			<li class="menu-item "><a href="#">Home</a></li>
-			<li class="menu-item "><a href="#" target="_blank">About</a>
+			<li class=" float-right">
+				<ul class="p-0 m-0 flex-end">
+					<li class="menu-item "><a href="#">Home</a></li>
+					<li class="menu-item "><a href="#" target="_blank">About</a>
+					</li>
+					<li class="menu-item "><a href="#" target="_blank">Contact</a></li>
+				</ul>
 			</li>
-			<li class="menu-item "><a href="#" target="_blank">Contact</a></li>
+			
 		</ul>
 		
 	</div>

@@ -18,7 +18,7 @@
         <table class="table table-sm table-striped ">
             <thead>
                 <tr class="">
-                    <td>Id</td>
+                    <td scope="col">Id</td>
                     <td>Name</td>
                     <td>Email</td>
                     <td>Status</td>

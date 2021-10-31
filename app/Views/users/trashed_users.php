@@ -16,7 +16,7 @@
      <?php endif ?>   
      
     <h1 class="col-md-6 text-center ml-5"> Trashed users</h1>
-    <div class="table-responsive  card m-2 ">
+    <div class="table-responsive  card m-2 p-2 ">
         <table class="table table-sm table-striped table-hover ">
             <thead>
                 <tr class="">

@@ -1,14 +1,15 @@
 
-<div class="container  col-md-3 " id="sidenav1" >
+<div class="container  col-md-3 side-nav-mobile " id="sidenav1" >
 
-    <div class="d-flex  flex-column s flex-shrink-0 p-2 pt-0 text-white bg-dark" id="sidenav2">   
-          <p class=" p-0 row m-0">
-            <span class="p-0 m-0   col-sm-9 navbarItem "></span>
-            <span class="  mr-2 display-4 col-sm-2 " style="cursor:pointer;" onclick="toggleMenu()"> &#8801;</span>
-          </p>  
-        <div class="d-flex navbar align-items-center align-content-center">
-            <a href="#" class="d-flex align-items-center text-center text-white text-decoration-none ml-3 ">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 navbarItem">  
+    <div class="d-flex  flex-column  flex-shrink-0 p-2 pt-0 text-white bg-dark side-nav-mobile" id="sidenav2">   
+          <p class=" p-0 row m-0 d-flex justify-content-start">
+            <span class="p-0 m-0    navbarItem "></span>
+            <span class="  mr-2 display-4 col-sm-2 float-right" style="cursor:pointer;" onclick="toggleMenu()"> &#8801;</span>
+          </p> 
+
+        <div class="d-flex navbar align-items-center align-content-center sidenav1 nabvbarItem-mobile">
+            <a href="#" class="d-flex align-items-center text-center text-white text-decoration-none ml-3 nabvbarItem-mobile">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 navbarItem nabvbarItem-mobile">  
                 <span class="fs-4 navbarItem">
                  
                    <?= session()->get('name');?> 
@@ -17,9 +18,9 @@
             </a>
         </div>     
 
-    <hr class="navbarItem">
+    <hr class="navbarItem  nabvbarItem-mobile">
     
-    <ul class="nav nav-pills navbarItem flex-column mb-auto">
+    <ul class="nav  nav-pills navbarItem nabvbarItem-mobile flex-column mb-auto sidenav1">
       <li class="nav-item">
         <a href="/admin/dashboard" class="nav-link text-white active" >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
@@ -92,21 +93,25 @@
 </div>
 
 <script>
+// toggle mobile menu
   function toggleMenu() {
 		var navbarItems = document.getElementsByClassName('navbarItem');
 		for (var i = 0; i < navbarItems.length; i++) {
 			var item = navbarItems[i];
 			item.classList.toggle("hidden");
+			item.classList.toggle("nabvbarItem-mobile");
 		}
 		document.getElementById('sidenav1').classList.toggle('side-nav');
 		document.getElementById('sidenav2').classList.toggle('side-nav');
 	}
-  
+    //  add click events to nav bar links
     var nav_bar_items = document.getElementsByClassName('nav-link');
     for (var i = 0; i < nav_bar_items.length; i++) {
           var item = nav_bar_items[i];
           item.addEventListener('click', toggleActiveClass);
         }
+
+        // toggle navbar acive class 
     function toggleActiveClass(e) {       
         for (var i = 0; i < nav_bar_items.length; i++) {
           var item = nav_bar_items[i];
@@ -115,6 +120,7 @@
         e.target.classList.toggle('active');
        
 	  }
+    // logout 
     function logOut(e) { 
         if(!confirm("Do you want to logout?") ){
             e.preventDefault();
