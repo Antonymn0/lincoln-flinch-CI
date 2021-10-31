@@ -217,7 +217,7 @@
 			header .hidden {
 				display: none;
 			}
-			
+		
 			header li.menu-item a:hover,
 			header li.menu-item a:focus {
 				background-color: rgba(221, 72, 20, .7);
