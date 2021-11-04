@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 
-///////////////////// CUSTOM ROUTES BELOW///////////////////////////////////////////////////////////
+///////////////////// CUSTOM ROUTES BELOW//////////////////////////////
 
 // auth routes
 $routes->get('register', 'Web/User/UsersController::adminNewUserForm');
@@ -42,6 +42,23 @@ $routes->post('register', 'Web/User/UsersController::create');
 $routes->get('login', 'Web/User/LoginController::index'); //show login form
 $routes->post('login', 'Web/User/LoginController::login');
 
+
+//////////////////  API ROUTES  /////////////////////////
+$routes->group("api",[], function($routes){
+    // work routes
+    $routes->resource('work', ['controller' =>'Api\Work\WorkController']);
+    $routes->get('force-delete-work/(:num)', 'Api\Work\WorkController::forceDelete/$id');
+    $routes->get('trashed-work', 'Api\Work\WorkController::getTrashedWork');
+
+    // department routes
+    $routes->resource('department', ['controller' =>'Api\Department\DepartmentController']);
+    $routes->get('force-delete-department/(:num)', 'Api\Department\DepartmentController::forceDelete/$id');
+    $routes->get('trashed-department', 'Api\Department\DepartmentController::getTrashedDepartment');
+
+});
+
+///////////  WEB ROUTES  ////////////////////////////////////////////
+// admin / user routes
  $routes->group("admin",["filter" => "auth"], function($routes){
     $routes->get('logout', 'Web/User/LoginController::logout');
 
@@ -63,6 +80,8 @@ $routes->post('login', 'Web/User/LoginController::login');
     $routes->get('parmanently-del-user/(:any)', 'Web\User\UsersController::parmanentlyDeleteUser/$1');
 
  });
+
+
 
 /*
  * --------------------------------------------------------------------

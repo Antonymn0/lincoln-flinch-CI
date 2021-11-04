@@ -23,7 +23,7 @@ class UsersController extends BaseController
             if($search_term == 'complete' || $search_term == 'pending'){
                 $data['users'] = $userModel->where('status', $search_term )->paginate(5);
                 $data['pageTitle'] = ucwords($search_term)  . ' users';
-                $data['pager'] = $userModel->pager;
+                return view('users/all_users', $data);
             }else{
                 $data['users'] = $userModel->paginate(3);
                 $data['pager'] = $userModel->pager;
@@ -253,7 +253,6 @@ class UsersController extends BaseController
         $userModel = new UserModel();
         $data['users'] = $userModel->onlyDeleted()->paginate(5);
         $data['pageTitle'] = 'Trashed users';
-        $data['users'] = $userModel->paginate(3);
         $data['pager'] = $userModel->pager;
         return view('users/trashed_users', $data);
     }
