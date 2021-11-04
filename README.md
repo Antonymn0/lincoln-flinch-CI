@@ -3,7 +3,8 @@
 ## What is Lincoln-flinch?
 
 A simple codignitor API application.
-Implents only user model and login methods on web interface
+Implements only user model and login methods on web interface.
+Everything else is an API
 
 
 
